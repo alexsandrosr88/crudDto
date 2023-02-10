@@ -2,6 +2,8 @@ package com.modelo.crud.dto;
 
 import java.io.Serializable;
 
+import com.modelo.crud.entitie.Pessoa;
+
 public class PessoaDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -15,6 +17,12 @@ public class PessoaDTO implements Serializable{
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
+	}
+	
+	public PessoaDTO(Pessoa entity) {
+		id = entity.getId();
+		nome = entity.getNome();
+		email = entity.getEmail();
 	}
 
 	public Long getId() {
