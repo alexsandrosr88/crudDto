@@ -1,5 +1,7 @@
 package com.modelo.crud.entitie;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,13 +18,15 @@ public class Pessoa {
 	private String nome;
 	@Column(length = 50)
 	private String email;
+	private LocalDate dataNasci;
 	
 	public Pessoa() {}
 
-	public Pessoa(Long id, String nome, String email) {
+	public Pessoa(Long id, String nome, String email, LocalDate dataNasci) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
+		this.dataNasci = dataNasci;
 	}
 
 	public Long getId() {
@@ -47,5 +51,13 @@ public class Pessoa {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public LocalDate getDataNasci() {
+		return dataNasci;
+	}
+
+	public void setDataNasci(LocalDate dataNasci) {
+		this.dataNasci = dataNasci;
 	}
 }

@@ -1,0 +1,10 @@
+INSERT INTO PESSOA(NOME, EMAIL, DATA_NASCI) VALUES ('Ruan Breno Miguel Melo','ruanbrenomelo@dgh.com.br', '1985-01-04');
+INSERT INTO PESSOA(NOME, EMAIL, DATA_NASCI) VALUES ('Ruan Mateus Geraldo Fogaça','ruan@poligerma.com.br', '1999-01-04');
+INSERT INTO PESSOA(NOME, EMAIL, DATA_NASCI) VALUES ('Thiago Guilherme Kauê Porto','thiago.guilherme.porto@adherminer.com.br', '1996-01-18');
+INSERT INTO PESSOA(NOME, EMAIL, DATA_NASCI) VALUES ('Rebeca Eloá Eloá Barbosa','rebecaeloabarbosa@edepbr.com.br', '1999-01-04');
+INSERT INTO PESSOA(NOME, EMAIL, DATA_NASCI) VALUES ('Marcos Vinicius Enzo Vieira','marcosviniciusvieira@virtualcriativa.com.br', '1944-01-15');
+INSERT INTO PESSOA(NOME, EMAIL, DATA_NASCI) VALUES ('Carlos Renan André da Conceição','carlos-daconceicao75@proshock.com.br', '1977-01-06');
+INSERT INTO PESSOA(NOME, EMAIL, DATA_NASCI) VALUES ('Bryan Giovanni Corte Real','bryan_cortereal@patrilarm.com.br', '1986-01-26');
+INSERT INTO PESSOA(NOME, EMAIL, DATA_NASCI) VALUES ('Bárbara Allana Emily Novaes','barbara_novaes@montcalm.com.br', '1988-01-30');
+INSERT INTO PESSOA(NOME, EMAIL, DATA_NASCI) VALUES ('Elza Vera Ayla Vieira','elza.vera.vieira@girocenter.com.br', '1967-01-18');
+INSERT INTO PESSOA(NOME, EMAIL, DATA_NASCI) VALUES ('Edson Bryan Moreira','edson-moreira89@argo.com.br', '1998-01-01');

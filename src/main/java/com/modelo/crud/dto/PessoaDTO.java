@@ -1,6 +1,7 @@
 package com.modelo.crud.dto;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 import com.modelo.crud.entitie.Pessoa;
 
@@ -10,19 +11,22 @@ public class PessoaDTO implements Serializable{
 	private Long id;
 	private String nome;
 	private String email;
+	private LocalDate dataNasci;
 	
 	public PessoaDTO(){}
 
-	public PessoaDTO(Long id, String nome, String email) {
+	public PessoaDTO(Long id, String nome, String email, LocalDate dataNasci) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
+		this.dataNasci = dataNasci;
 	}
 	
 	public PessoaDTO(Pessoa entity) {
 		id = entity.getId();
 		nome = entity.getNome();
 		email = entity.getEmail();
+		dataNasci = entity.getDataNasci();
 	}
 
 	public Long getId() {
@@ -47,5 +51,13 @@ public class PessoaDTO implements Serializable{
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public LocalDate getDataNasci() {
+		return dataNasci;
+	}
+
+	public void setDataNasci(LocalDate dataNasci) {
+		this.dataNasci = dataNasci;
 	}
 }
