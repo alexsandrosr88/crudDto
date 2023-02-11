@@ -7,13 +7,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.modelo.crud.dto.PessoaDTO;
-import com.modelo.crud.entitie.Pessoa;
 import com.modelo.crud.service.PessoaService;
 
 @RestController
@@ -42,6 +42,11 @@ public class PessoaController {
 	@PostMapping
 	public PessoaDTO novaPessoa(@RequestBody PessoaDTO dto) {
 		return service.salvarPessoa(dto);
+	}
+	
+	@PutMapping(value = "/{id}")
+	public PessoaDTO editarPessoa(@PathVariable Long id, @RequestBody PessoaDTO dto) {
+		return service.editarPessoa(dto, id);
 	}
 	
 	

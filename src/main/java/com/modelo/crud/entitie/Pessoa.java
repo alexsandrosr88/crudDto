@@ -37,6 +37,13 @@ public class Pessoa {
 		dataNasci = dto.getDataNasci();
 	}
 
+	public Pessoa(PessoaDTO dto, Long id) {
+		this.id = id;
+		nome = dto.getNome();
+		email = dto.getEmail();
+		dataNasci = dto.getDataNasci();
+	}
+
 	public Long getId() {
 		return id;
 	}

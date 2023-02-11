@@ -41,6 +41,15 @@ public class PessoaService {
 		Pessoa pessoa = new Pessoa (dto); 
 		return new PessoaDTO (repository.save(pessoa));
 	}
+
+	@Transactional(readOnly = false)
+	public PessoaDTO editarPessoa(PessoaDTO dto, Long id) {
+		Pessoa pessoa = repository.getReferenceById(id);
+		pessoa = new Pessoa(dto, id);
+		return new PessoaDTO(repository.save(pessoa));
+	}
+	
+	
 	
 	
 }
