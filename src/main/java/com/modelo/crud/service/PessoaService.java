@@ -1,7 +1,6 @@
 package com.modelo.crud.service;
 
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,8 +47,9 @@ public class PessoaService {
 		pessoa = new Pessoa(dto, id);
 		return new PessoaDTO(repository.save(pessoa));
 	}
-	
-	
-	
-	
+
+	@Transactional(readOnly = false)
+	public void deletarPessoa(Long id) {
+		repository.deleteById(id);
+	}
 }
