@@ -1,6 +1,7 @@
 package com.modelo.crud.service;
 
 import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,13 @@ public class PessoaService {
 		Pessoa pessoa = repository.findById(id).get();
 		return new PessoaDTO(pessoa);
 	}
+
+	@Transactional(readOnly = true)
+	public List<PessoaDTO> pessoaPorNome(String nome) {
+		List<Pessoa> list = repository.findByNomeContainingIgnoreCase(nome);
+		return list.stream().map(x -> new PessoaDTO(x)).collect(Collectors.toList());
+	}
+	
 	
 	
 	

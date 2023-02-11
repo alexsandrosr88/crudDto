@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.modelo.crud.dto.PessoaDTO;
 import com.modelo.crud.service.PessoaService;
 
-import jakarta.websocket.server.PathParam;
-
 @RestController
 @RequestMapping(value = "/pessoa")
 public class PessoaController {
@@ -29,4 +27,11 @@ public class PessoaController {
 	public PessoaDTO pessoaPorId(@PathVariable Long id) {
 		return service.pessoaPorId(id);
 	}
+	
+	@GetMapping(value = "/buscaPorNome/{nome}")
+	public List<PessoaDTO> pessoaPorNome(@PathVariable String nome) {
+		return service.pessoaPorNome(nome);
+	}
+	
+	
 }
