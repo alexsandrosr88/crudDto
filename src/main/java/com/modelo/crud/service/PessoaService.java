@@ -35,8 +35,12 @@ public class PessoaService {
 		List<Pessoa> list = repository.findByNomeContainingIgnoreCase(nome);
 		return list.stream().map(x -> new PessoaDTO(x)).collect(Collectors.toList());
 	}
-	
-	
+
+	@Transactional(readOnly = false)
+	public PessoaDTO salvarPessoa(PessoaDTO dto) {
+		Pessoa pessoa = new Pessoa (dto); 
+		return new PessoaDTO (repository.save(pessoa));
+	}
 	
 	
 }

@@ -2,6 +2,8 @@ package com.modelo.crud.entitie;
 
 import java.time.LocalDate;
 
+import com.modelo.crud.dto.PessoaDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,6 +29,12 @@ public class Pessoa {
 		this.nome = nome;
 		this.email = email;
 		this.dataNasci = dataNasci;
+	}
+
+	public Pessoa(PessoaDTO dto) {
+		nome = dto.getNome();
+		email = dto.getEmail();
+		dataNasci = dto.getDataNasci();
 	}
 
 	public Long getId() {
