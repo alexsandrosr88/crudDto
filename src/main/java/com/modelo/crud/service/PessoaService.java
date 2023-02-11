@@ -1,6 +1,7 @@
 package com.modelo.crud.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.modelo.crud.dto.PessoaDTO;
 import com.modelo.crud.entitie.Pessoa;
 import com.modelo.crud.repository.PessoaRepository;
+import com.modelo.crud.service.exception.RecursoNaoEncontrado;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class PessoaService {
@@ -20,18 +24,29 @@ public class PessoaService {
 	@Transactional(readOnly = true)
 	public List<PessoaDTO> listarTudo() {
 		List<Pessoa> list = repository.findAll();
-		return list.stream().map(x -> new PessoaDTO(x)).collect(Collectors.toList());
+		if(list.isEmpty())
+			throw new RecursoNaoEncontrado("O banco não possui registros!");
+		else
+			return list.stream().map(x -> new PessoaDTO(x)).collect(Collectors.toList());
 	}
 
 	@Transactional(readOnly = true)
 	public PessoaDTO pessoaPorId(Long id) {
-		Pessoa pessoa = repository.findById(id).get();
-		return new PessoaDTO(pessoa);
+		try {
+			Pessoa pessoa = repository.findById(id).get();
+			return new PessoaDTO(pessoa);
+		}
+		catch(NoSuchElementException e) {
+			throw new RecursoNaoEncontrado("O id: "+id+" não existe!");
+		}
+
 	}
 
 	@Transactional(readOnly = true)
 	public List<PessoaDTO> pessoaPorNome(String nome) {
 		List<Pessoa> list = repository.findByNomeContainingIgnoreCase(nome);
+		if(list.isEmpty())
+			throw new RecursoNaoEncontrado("O nome: " + nome + " não existe!");
 		return list.stream().map(x -> new PessoaDTO(x)).collect(Collectors.toList());
 	}
 
@@ -43,13 +58,23 @@ public class PessoaService {
 
 	@Transactional(readOnly = false)
 	public PessoaDTO editarPessoa(PessoaDTO dto, Long id) {
-		Pessoa pessoa = repository.getReferenceById(id);
-		pessoa = new Pessoa(dto, id);
-		return new PessoaDTO(repository.save(pessoa));
+		try {
+			Pessoa pessoa = repository.getReferenceById(id);
+			pessoa = new Pessoa(dto, id);
+			return new PessoaDTO(repository.save(pessoa));
+		}
+		catch(EntityNotFoundException e) {
+			throw new RecursoNaoEncontrado("O id: " + id + " não existe!");
+		}
 	}
 
 	@Transactional(readOnly = false)
 	public void deletarPessoa(Long id) {
-		repository.deleteById(id);
+		try {
+			repository.deleteById(id);
+		}
+		catch(Exception e) {
+			throw new RecursoNaoEncontrado("O id: " + id + " não existe!");
+		}
 	}
 }
