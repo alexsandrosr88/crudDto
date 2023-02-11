@@ -12,6 +12,7 @@ import com.modelo.crud.dto.PessoaDTO;
 import com.modelo.crud.entitie.Pessoa;
 import com.modelo.crud.repository.PessoaRepository;
 import com.modelo.crud.service.exception.RecursoNaoEncontrado;
+import com.modelo.crud.service.exception.ValidacaoExcecao;
 
 import jakarta.persistence.EntityNotFoundException;
 
@@ -52,6 +53,7 @@ public class PessoaService {
 
 	@Transactional(readOnly = false)
 	public PessoaDTO salvarPessoa(PessoaDTO dto) {
+		validaEmail(dto.getEmail());
 		Pessoa pessoa = new Pessoa (dto); 
 		return new PessoaDTO (repository.save(pessoa));
 	}
@@ -76,5 +78,12 @@ public class PessoaService {
 		catch(Exception e) {
 			throw new RecursoNaoEncontrado("O id: " + id + " não existe!");
 		}
+	}
+	private void validaEmail(String email) {
+		
+		if(repository.existsByEmail(email)) {
+			throw new ValidacaoExcecao("Este e-mail já existe no banco!");
+		}
+			
 	}
 }

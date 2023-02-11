@@ -9,4 +9,6 @@ import com.modelo.crud.entitie.Pessoa;
 public interface PessoaRepository extends JpaRepository<Pessoa, Long>{
 
 	List<Pessoa>findByNomeContainingIgnoreCase(String nome);
+	
+	boolean existsByEmail(String email);
 }

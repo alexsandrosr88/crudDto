@@ -18,7 +18,7 @@ import com.modelo.crud.dto.PessoaDTO;
 import com.modelo.crud.service.PessoaService;
 
 @RestController
-@RequestMapping(value = "/pessoa")
+@RequestMapping("pessoa")
 public class PessoaController {
 
 	@Autowired
@@ -29,13 +29,13 @@ public class PessoaController {
 		return service.listarTudo();
 	}
 	
-	@GetMapping(value = "/{id}")
+	@GetMapping("{id}")
 	public PessoaDTO pessoaPorId(@PathVariable Long id) {
 		return service.pessoaPorId(id);
 	}
 	
-	@GetMapping(value = "/buscaPorNome/{nome}")
-	public List<PessoaDTO> pessoaPorNome(@PathVariable String nome) {
+	@GetMapping("buscaPorNome")
+	public List<PessoaDTO> pessoaPorNome(String nome) {
 		return service.pessoaPorNome(nome);
 	}
 	
@@ -45,13 +45,13 @@ public class PessoaController {
 		return service.salvarPessoa(dto);
 	}
 	
-	@PutMapping(value = "/{id}")
+	@PutMapping("{id}")
 	public PessoaDTO editarPessoa(@PathVariable Long id, @RequestBody PessoaDTO dto) {
 		return service.editarPessoa(dto, id);
 	}
 	
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@DeleteMapping(value = "/{id}")
+	@DeleteMapping("{id}")
 	public void deletarPessoa(@PathVariable Long id) {
 		service.deletarPessoa(id);
 	}
