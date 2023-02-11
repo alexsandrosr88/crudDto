@@ -22,4 +22,13 @@ public class PessoaService {
 		List<Pessoa> list = repository.findAll();
 		return list.stream().map(x -> new PessoaDTO(x)).collect(Collectors.toList());
 	}
+
+	@Transactional(readOnly = true)
+	public PessoaDTO pessoaPorId(Long id) {
+		Pessoa pessoa = repository.findById(id).get();
+		return new PessoaDTO(pessoa);
+	}
+	
+	
+	
 }
