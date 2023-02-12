@@ -23,33 +23,33 @@ public class PessoaController {
 
 	@Autowired
 	private PessoaService service;
-	
+
 	@GetMapping
-	public List<PessoaDTO> listaDePessoa(){
+	public List<PessoaDTO> listaDePessoa() {
 		return service.listarTudo();
 	}
-	
+
 	@GetMapping("{id}")
 	public PessoaDTO pessoaPorId(@PathVariable Long id) {
 		return service.pessoaPorId(id);
 	}
-	
+
 	@GetMapping("buscaPorNome")
 	public List<PessoaDTO> pessoaPorNome(String nome) {
 		return service.pessoaPorNome(nome);
 	}
-	
+
 	@ResponseStatus(HttpStatus.CREATED)
 	@PostMapping
 	public PessoaDTO novaPessoa(@RequestBody PessoaDTO dto) {
 		return service.salvarPessoa(dto);
 	}
-	
+
 	@PutMapping("{id}")
 	public PessoaDTO editarPessoa(@PathVariable Long id, @RequestBody PessoaDTO dto) {
 		return service.editarPessoa(dto, id);
 	}
-	
+
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@DeleteMapping("{id}")
 	public void deletarPessoa(@PathVariable Long id) {

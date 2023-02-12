@@ -3,7 +3,7 @@ package com.modelo.crud.dto;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import com.modelo.crud.entitie.Pessoa;
+import com.modelo.crud.entity.Pessoa;
 
 public class PessoaDTO implements Serializable{
 	private static final long serialVersionUID = 1L;

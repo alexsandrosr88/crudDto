@@ -1,4 +1,4 @@
-package com.modelo.crud.entitie;
+package com.modelo.crud.entity;
 
 import java.time.LocalDate;
 
@@ -21,8 +21,9 @@ public class Pessoa {
 	@Column(length = 50)
 	private String email;
 	private LocalDate dataNasci;
-	
-	public Pessoa() {}
+
+	public Pessoa() {
+	}
 
 	public Pessoa(Long id, String nome, String email, LocalDate dataNasci) {
 		this.id = id;

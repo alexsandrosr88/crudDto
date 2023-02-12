@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.modelo.crud.entitie.Pessoa;
+import com.modelo.crud.entity.Pessoa;
 
 public interface PessoaRepository extends JpaRepository<Pessoa, Long>{
 
