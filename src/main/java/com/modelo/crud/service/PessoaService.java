@@ -80,7 +80,7 @@ public class PessoaService {
 	private void validaEmail(String email) {
 
 		if (repository.existsByEmail(email)) {
-			throw new ValidacaoExcecao("Este e-mail já existe no banco!");
+			throw new ValidacaoExcecao("O email: "+email+" já existe no banco! Informe outro e-mail!");
 		}
 	}
 }
