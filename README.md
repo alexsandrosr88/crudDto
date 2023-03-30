@@ -50,8 +50,11 @@ json
 
 **Atualizar Pessoa:**
 
--
-PUT [http://localhost:8080/pessoa]
+Query params:
+
+- id: *Informar o id da pessoa para ser alterado.*
+
+-PUT [http://localhost:8080/pessoa/id]
 
 Request Body:
 
@@ -78,33 +81,38 @@ json
 }
 ```
 
-**Consultar Pessoa:**
+**Buscar pessoa por nome:**
 
--
-GET [http://localhost:8080/pessoa]
+Query params:
+
+- id: *Informar o nome da pessoa para ser alterado.*
+
+-GET [http://localhost:8080/pessoa/buscaPorNome/nome]
 
 Resposta: 200 OK
 
 json
 
 ```json
-{
-  "id": 1,
-  "nome": "string",
-  "email": "string",
-  "dataNasci": "yyyy-MM-dd"
-}
+  [
+  {
+    "id": 1,
+    "nome": "igual",
+    "email": "string",
+    "dataNasci": "yyyy-MM-dd"
+  },
+  {
+    "id": 2,
+    "nome": "nome igual",
+    "email": "string",
+    "dataNasci": "yyyy-MM-dd"
+  }
+]
 ```
 
 **Listar todas as pessoas:**
 
--
-GET [http://localhost:8080/pessoa]
-
-Query params:
-
-* page: número da página (opcional, padrão: 0)
-* size: número de elementos por página (opcional, padrão: 20)
+-GET [http://localhost:8080/pessoa]
 
 Resposta: 200 OK
 
@@ -125,4 +133,24 @@ json
     "dataNasci": "yyyy-MM-dd"
   }
 ]
+```
+**Deletar uma pessoa por id**
+
+Query params:
+
+- id: *Informar o id da pessoa para ser alterado.*
+
+-DELETE [http://localhost:8080/pessoa/id]
+
+Resposta: No_CONTENT
+
+json
+
+```json
+{
+  "id": 1,
+  "nome": "string",
+  "email": "string",
+  "dataNasci": "yyyy-MM-dd"
+}
 ```
