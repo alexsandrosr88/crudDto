@@ -142,7 +142,7 @@ Query params:
 
 -DELETE [http://localhost:8080/pessoa/id]
 
-Resposta: No_CONTENT
+Resposta: No Content
 
 json
 
