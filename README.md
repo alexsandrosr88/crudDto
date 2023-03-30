@@ -138,7 +138,7 @@ json
 
 Query params:
 
-- id: *Informar o id da pessoa para ser alterado.*
+- id: *Informar o id da pessoa para ser deletado.*
 
 -DELETE [http://localhost:8080/pessoa/id]
 
