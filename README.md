@@ -85,7 +85,7 @@ json
 
 Query params:
 
-- id: *Informar o nome da pessoa para ser alterado.*
+- nome: *Informar o nome da pessoa para ser localizado.*
 
 -GET [http://localhost:8080/pessoa/buscaPorNome/nome]
 
