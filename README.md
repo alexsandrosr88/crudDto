@@ -148,9 +148,5 @@ json
 
 ```json
 {
-  "id": 1,
-  "nome": "string",
-  "email": "string",
-  "dataNasci": "yyyy-MM-dd"
 }
 ```
