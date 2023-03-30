@@ -3,6 +3,7 @@
 ## Descrição
 
 O api permite tratar requisições GET, POST, PUT e DELETE;
+- Com tratamento de exceções.
 
 ## Tecnologias utilizadas
 
@@ -19,7 +20,37 @@ O api permite tratar requisições GET, POST, PUT e DELETE;
   <img width="460" src="ArqComDTO.png">
 </p>
 
+## Observações
+
+O banco de dados utilizado é o H2, que é um banco de dados em memória. Portanto, ao executar a aplicação, o banco de
+dados será populado com 10 registros aleatórios criado a partir do site https://www.4devs.com.br/gerador_de_pessoas
+
 ## Endpoints:
+
+**Listar todas as pessoas:**
+
+-GET [http://localhost:8080/pessoa]
+
+Resposta: 200 OK
+
+json
+
+```json
+  [
+  {
+    "id": 1,
+    "nome": "string",
+    "email": "string",
+    "dataNasci": "yyyy-MM-dd"
+  },
+  {
+    "id": 2,
+    "nome": "string",
+    "email": "string",
+    "dataNasci": "yyyy-MM-dd"
+  }
+]
+```
 
 **Criar Pessoa:**
 
@@ -110,30 +141,6 @@ json
 ]
 ```
 
-**Listar todas as pessoas:**
-
--GET [http://localhost:8080/pessoa]
-
-Resposta: 200 OK
-
-json
-
-```json
-  [
-  {
-    "id": 1,
-    "nome": "string",
-    "email": "string",
-    "dataNasci": "yyyy-MM-dd"
-  },
-  {
-    "id": 2,
-    "nome": "string",
-    "email": "string",
-    "dataNasci": "yyyy-MM-dd"
-  }
-]
-```
 **Deletar uma pessoa por id**
 
 Query params:
